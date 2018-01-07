@@ -12,6 +12,9 @@
 		65CA88C120028DB8005E5382 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65CA88BF20028DB8005E5382 /* Main.storyboard */; };
 		65CA88C320028DB8005E5382 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 65CA88C220028DB8005E5382 /* Assets.xcassets */; };
 		65CA88C620028DB8005E5382 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65CA88C420028DB8005E5382 /* LaunchScreen.storyboard */; };
+		65CA88CE20028DC6005E5382 /* CustomizableAlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA88CD20028DC6005E5382 /* CustomizableAlertController.swift */; };
+		65CA88D020028E3E005E5382 /* UIAlertAction+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA88CF20028E3E005E5382 /* UIAlertAction+Extension.swift */; };
+		65CA88D22002A8CA005E5382 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 65CA88D12002A8CA005E5382 /* LICENSE */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,10 @@
 		65CA88C220028DB8005E5382 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		65CA88C520028DB8005E5382 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		65CA88C720028DB9005E5382 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65CA88CD20028DC6005E5382 /* CustomizableAlertController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomizableAlertController.swift; sourceTree = "<group>"; };
+		65CA88CF20028E3E005E5382 /* UIAlertAction+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Extension.swift"; sourceTree = "<group>"; };
+		65CA88D12002A8CA005E5382 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		65CA88D32002A8D7005E5382 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +45,8 @@
 		65CA88AF20028DB8005E5382 = {
 			isa = PBXGroup;
 			children = (
+				65CA88D32002A8D7005E5382 /* README.md */,
+				65CA88D12002A8CA005E5382 /* LICENSE */,
 				65CA88BA20028DB8005E5382 /* CustomizableAlertController */,
 				65CA88B920028DB8005E5382 /* Products */,
 			);
@@ -54,11 +63,13 @@
 		65CA88BA20028DB8005E5382 /* CustomizableAlertController */ = {
 			isa = PBXGroup;
 			children = (
-				65CA88BB20028DB8005E5382 /* AppDelegate.swift */,
+				65CA88CD20028DC6005E5382 /* CustomizableAlertController.swift */,
+				65CA88CF20028E3E005E5382 /* UIAlertAction+Extension.swift */,
 				65CA88BD20028DB8005E5382 /* ViewController.swift */,
 				65CA88BF20028DB8005E5382 /* Main.storyboard */,
-				65CA88C220028DB8005E5382 /* Assets.xcassets */,
 				65CA88C420028DB8005E5382 /* LaunchScreen.storyboard */,
+				65CA88C220028DB8005E5382 /* Assets.xcassets */,
+				65CA88BB20028DB8005E5382 /* AppDelegate.swift */,
 				65CA88C720028DB9005E5382 /* Info.plist */,
 			);
 			path = CustomizableAlertController;
@@ -125,6 +136,7 @@
 			files = (
 				65CA88C620028DB8005E5382 /* LaunchScreen.storyboard in Resources */,
 				65CA88C320028DB8005E5382 /* Assets.xcassets in Resources */,
+				65CA88D22002A8CA005E5382 /* LICENSE in Resources */,
 				65CA88C120028DB8005E5382 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,8 +148,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65CA88D020028E3E005E5382 /* UIAlertAction+Extension.swift in Sources */,
 				65CA88BE20028DB8005E5382 /* ViewController.swift in Sources */,
 				65CA88BC20028DB8005E5382 /* AppDelegate.swift in Sources */,
+				65CA88CE20028DC6005E5382 /* CustomizableAlertController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
