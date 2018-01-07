@@ -31,4 +31,6 @@ greenAction.titleAttributes = [
     StringAttribute(key: .foregroundColor, value: UIColor.green)
 ]
 ```
-Medium article: X
+### Medium article:
+
+https://medium.com/@Daniel_illescas/hacking-ios-alerts-with-swift-61aefce9736a
