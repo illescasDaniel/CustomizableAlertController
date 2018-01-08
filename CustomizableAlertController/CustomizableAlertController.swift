@@ -175,11 +175,9 @@ private extension UIView {
 			return self as? UIVisualEffectView
 		}
 		
-		if !self.subviews.isEmpty {
-			for subview in self.subviews {
-				if let validView = subview.visualEffectView {
-					return validView
-				}
+		for subview in self.subviews {
+			if let validView = subview.visualEffectView {
+				return validView
 			}
 		}
 		return nil
