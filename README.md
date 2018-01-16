@@ -12,7 +12,7 @@ customAlertController.addAction(title: "Cancel", style: .cancel)
 let greenAction = UIAlertAction(title: "I'm green!", style: .default)
 customAlertController.addAction(greenAction)
 
-customAlertController.addParallexEffect(x: 20, y: 20)
+customAlertController.addParallaxEffect(x: 20, y: 20)
 
 self.present(customAlertController, animated: true)
 

@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 		let greenAction = UIAlertAction(title: "I'm green!", style: .default)
 		darkAlertController.addAction(greenAction)
 		
-		darkAlertController.addParallexEffect(x: 20, y: 20)
+		darkAlertController.addParallaxEffect(x: 20, y: 20)
 		
 		self.present(darkAlertController, animated: true)
 		

@@ -43,7 +43,7 @@ open class CustomizableAlertController: UIAlertController {
 		self.view.tintColor = self.tintColor
 	}
 	
-	func addParallexEffect(x: Int = 20, y: Int = 20) {
+	func addParallaxEffect(x: Int = 20, y: Int = 20) {
 		let horizontal = UIInterpolatingMotionEffect(keyPath: "layer.transform.translation.x", type: .tiltAlongHorizontalAxis)
 		horizontal.minimumRelativeValue = -x
 		horizontal.maximumRelativeValue = x
