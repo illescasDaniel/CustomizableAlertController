@@ -17,11 +17,33 @@ class ViewController: UIViewController {
 	@IBAction func displayAlert(_ sender: UIButton) {
 		
 		let darkAlertController = DarkAlertController(title: "Do you want to do X?", message: ":D hii", preferredStyle: .alert)
-		darkAlertController.addAction(title: "Yes", style: .default)
+		darkAlertController.addAction(title: "Yes", style: .default, image: #imageLiteral(resourceName: "iconTest"))
 		darkAlertController.addAction(title: "Cancel", style: .cancel)
 		
 		let greenAction = UIAlertAction(title: "I'm green!", style: .default)
 		darkAlertController.addAction(greenAction)
+		
+		let labelElement = UILabel(frame: CGRect(x: 0, y: 0, width: 50, height: 20))
+		labelElement.text = "Hii!!"
+		labelElement.textColor = .white
+		greenAction.accessoryView = labelElement
+		
+		let testAction = UIAlertAction(title: "Wow, a switch!", style: .default)
+		darkAlertController.addAction(testAction)
+		
+		// Adding a Switch easily
+		let switchElement = UISwitch()
+		switchElement.addTarget(self, action: #selector(testFunc), for: .valueChanged)
+		testAction.accessoryView = switchElement
+		
+		// Add any viewController
+		/*let switchVC = ElementViewController()
+		switchVC.elementView = UISwitch()
+		
+		if let switchElement = switchVC.elementView as? UISwitch {
+		switchElement.addTarget(self, action: #selector(testFunc), for: .valueChanged)
+		greenAction.contentViewController = switchVC
+		}*/
 		
 		darkAlertController.addParallaxEffect(x: 20, y: 20)
 		
@@ -41,6 +63,10 @@ class ViewController: UIViewController {
 		greenAction.titleAttributes = [
 			StringAttribute(key: .foregroundColor, value: UIColor.green)
 		]
+	}
+	
+	@objc internal func testFunc() {
+		print("lol")
 	}
 }
 

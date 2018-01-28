@@ -15,6 +15,8 @@ final class DarkAlertController: CustomizableAlertController {
 		
 		self.visualEffectView?.effect = UIBlurEffect(style: .dark)
 		self.tintColor = UIColor(red: 0.4, green: 0.5, blue: 1.0, alpha: 1.0)
+		
+		self.contentView?.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.7)
 
 		let whiteStringAttribute = StringAttribute(key: .foregroundColor, value: UIColor.white)
 		self.titleAttributes = [whiteStringAttribute]
@@ -87,9 +89,32 @@ extension UIAlertAction {
 	var label: UILabel? {
 		return (self.value(forKey: "__representer") as? NSObject)?.value(forKey: "label") as? UILabel
 	}
+	
 	var titleAttributes: [StringAttribute] {
 		get { return self.label?.attributedText?.attributes ?? [] }
 		set { self.label?.textAttributes = newValue }
+	}
+	
+	var accessoryImage: UIImage? {
+		get { return self.image_ }
+		set { self.image_ = newValue }
+	}
+	
+	var contentViewController: ElementViewController? {
+		get { return self.contentViewController_ as? ElementViewController }
+		set {
+			print("The accessory image might overlap with the content of the contentViewController")
+			self.contentViewController_ = newValue
+		}
+	}
+	
+	var accessoryView: UIView? {
+		get { return contentViewController?.elementView }
+		set {
+			let elementViewController = ElementViewController()
+			elementViewController.elementView = newValue
+			self.contentViewController = elementViewController
+		}
 	}
 }
 
@@ -155,6 +180,29 @@ extension NSMutableAttributedString {
 	}
 }
 
+class ElementViewController: UIViewController {
+	
+	var elementView: UIView? = nil
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		if let validView = self.elementView  {
+		
+			self.view.addSubview(validView)
+			
+			validView.translatesAutoresizingMaskIntoConstraints = false
+			
+			let margins = self.view.layoutMarginsGuide
+			
+			validView.centerYAnchor.constraint(equalTo: margins.topAnchor, constant: validView.frame.height).isActive = true
+			validView.centerXAnchor.constraint(equalTo: margins.centerXAnchor).isActive = true
+			validView.widthAnchor.constraint(equalTo: margins.widthAnchor).isActive = true
+			validView.heightAnchor.constraint(equalTo: margins.heightAnchor).isActive = true
+		}
+	}
+}
+
 //
 
 typealias StringAttribute = NSAttributedString.StringAttribute
@@ -184,7 +232,7 @@ private extension UIView {
 	}
 }
 
-private extension UIAlertController{
+private extension UIAlertController {
 	
 	private var attributedTitle_: NSAttributedString? {
 		get {
@@ -199,6 +247,27 @@ private extension UIAlertController{
 			return self.value(forKey: "attributedMessage") as? NSAttributedString
 		} set {
 			self.setValue(newValue, forKey: "attributedMessage")
+		}
+	}
+}
+
+private extension UIAlertAction {
+	
+	// idea from: https://medium.com/@maximbilan/ios-uialertcontroller-customization-5cfd88140db8
+	private var image_: UIImage? {
+		get {
+			return self.value(forKey: "image") as? UIImage
+		} set {
+			let imageWithGoodDimensions = newValue?.scale(to: CGSize(width: 30, height: 30))
+			self.setValue(imageWithGoodDimensions?.withRenderingMode(.alwaysOriginal), forKey: "image")
+		}
+	}
+	
+	private var contentViewController_: UIViewController? {
+		get {
+			return self.value(forKey: "contentViewController") as? UIViewController
+		} set {
+			self.setValue(newValue, forKey: "contentViewController")
 		}
 	}
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		65A0B0DF201DF93000E5D929 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65A0B0DE201DF93000E5D929 /* UIImage+Extension.swift */; };
 		65CA88BC20028DB8005E5382 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA88BB20028DB8005E5382 /* AppDelegate.swift */; };
 		65CA88BE20028DB8005E5382 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65CA88BD20028DB8005E5382 /* ViewController.swift */; };
 		65CA88C120028DB8005E5382 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 65CA88BF20028DB8005E5382 /* Main.storyboard */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		65A0B0DE201DF93000E5D929 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		65A0B0E3201E097100E5D929 /* CustomAlertController.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CustomAlertController.png; sourceTree = "<group>"; };
 		65CA88B820028DB8005E5382 /* CustomizableAlertController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomizableAlertController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		65CA88BB20028DB8005E5382 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		65CA88BD20028DB8005E5382 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -42,11 +45,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		65A0B0E1201DF94400E5D929 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				65CA88CF20028E3E005E5382 /* UIAlertAction+Extension.swift */,
+				65A0B0DE201DF93000E5D929 /* UIImage+Extension.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
+		65A0B0E2201E097100E5D929 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				65A0B0E3201E097100E5D929 /* CustomAlertController.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		65CA88AF20028DB8005E5382 = {
 			isa = PBXGroup;
 			children = (
 				65CA88D32002A8D7005E5382 /* README.md */,
 				65CA88D12002A8CA005E5382 /* LICENSE */,
+				65A0B0E2201E097100E5D929 /* Screenshots */,
 				65CA88BA20028DB8005E5382 /* CustomizableAlertController */,
 				65CA88B920028DB8005E5382 /* Products */,
 			);
@@ -63,8 +84,8 @@
 		65CA88BA20028DB8005E5382 /* CustomizableAlertController */ = {
 			isa = PBXGroup;
 			children = (
+				65A0B0E1201DF94400E5D929 /* Extensions */,
 				65CA88CD20028DC6005E5382 /* CustomizableAlertController.swift */,
-				65CA88CF20028E3E005E5382 /* UIAlertAction+Extension.swift */,
 				65CA88BD20028DB8005E5382 /* ViewController.swift */,
 				65CA88BF20028DB8005E5382 /* Main.storyboard */,
 				65CA88C420028DB8005E5382 /* LaunchScreen.storyboard */,
@@ -150,6 +171,7 @@
 			files = (
 				65CA88D020028E3E005E5382 /* UIAlertAction+Extension.swift in Sources */,
 				65CA88BE20028DB8005E5382 /* ViewController.swift in Sources */,
+				65A0B0DF201DF93000E5D929 /* UIImage+Extension.swift in Sources */,
 				65CA88BC20028DB8005E5382 /* AppDelegate.swift in Sources */,
 				65CA88CE20028DC6005E5382 /* CustomizableAlertController.swift in Sources */,
 			);
