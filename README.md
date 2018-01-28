@@ -2,7 +2,7 @@
 
 Hacking the UIAlertController to fully customize it!
 
-### Screenshot
+## Screenshot
 <img src="Screenshots/CustomAlertController.png" width="350">
 
 ## Example

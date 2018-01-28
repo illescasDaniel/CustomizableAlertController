@@ -103,7 +103,9 @@ extension UIAlertAction {
 	var contentViewController: ElementViewController? {
 		get { return self.contentViewController_ as? ElementViewController }
 		set {
-			print("The accessory image might overlap with the content of the contentViewController")
+			if accessoryImage != nil {
+				print("The accessory image might overlap with the content of the contentViewController")
+			}
 			self.contentViewController_ = newValue
 		}
 	}
