@@ -18,7 +18,11 @@ class ViewController: UIViewController {
 		
 		let darkAlertController = DarkAlertController(title: "Do you want to do X?", message: ":D hii", preferredStyle: .alert)
 		darkAlertController.addAction(title: "Yes", style: .default, image: #imageLiteral(resourceName: "iconTest"))
-		darkAlertController.addAction(title: "Cancel", style: .cancel)
+		
+		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+		cancelAction.titleTextColor = .blue
+		
+		darkAlertController.addAction(cancelAction)
 		
 		let greenAction = UIAlertAction(title: "I'm green!", style: .default)
 		darkAlertController.addAction(greenAction)

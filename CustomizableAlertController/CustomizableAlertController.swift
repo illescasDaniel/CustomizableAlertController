@@ -8,6 +8,15 @@
 
 import UIKit
 
+/*extension UIView {
+	func changeColor(to color: UIColor) {
+		self.backgroundColor = color
+		for subview in self.subviews {
+			subview.changeColor(to: color)
+		}
+	}
+}*/
+
 final class DarkAlertController: CustomizableAlertController {
 	
 	override func viewDidLoad() {
@@ -93,6 +102,11 @@ extension UIAlertAction {
 	var titleAttributes: [StringAttribute] {
 		get { return self.label?.attributedText?.attributes ?? [] }
 		set { self.label?.textAttributes = newValue }
+	}
+	
+	var titleTextColor: UIColor? {
+		get { return self.titleTextColor_ }
+		set { self.titleTextColor_ = newValue }
 	}
 	
 	var accessoryImage: UIImage? {
@@ -270,6 +284,14 @@ private extension UIAlertAction {
 			return self.value(forKey: "contentViewController") as? UIViewController
 		} set {
 			self.setValue(newValue, forKey: "contentViewController")
+		}
+	}
+	
+	private var titleTextColor_: UIColor? {
+		get {
+			return self.value(forKey: "titleTextColor") as? UIColor
+		} set {
+			self.setValue(newValue, forKey: "titleTextColor")
 		}
 	}
 }
