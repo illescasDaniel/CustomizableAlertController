@@ -12,6 +12,7 @@ class MobileDataItem: UITableViewController {
 	
 	override func viewDidLoad() {
 		self.tableView.rowHeight = 35
+		self.tableView.isScrollEnabled = false
 	}
 	
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
