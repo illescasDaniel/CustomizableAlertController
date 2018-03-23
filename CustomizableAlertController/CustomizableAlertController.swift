@@ -23,6 +23,7 @@ final class DarkAlertController: CustomizableAlertController {
 		super.viewDidLoad()
 		
 		self.visualEffectView?.effect = UIBlurEffect(style: .dark)
+		
 		self.tintColor = UIColor(red: 0.4, green: 0.5, blue: 1.0, alpha: 1.0)
 		
 		self.contentView?.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 0.7)
@@ -114,7 +115,7 @@ extension UIAlertAction {
 		set { self.image_ = newValue }
 	}
 	
-	var contentViewController: ElementViewController? {
+	var contentElementViewController: ElementViewController? {
 		get { return self.contentViewController_ as? ElementViewController }
 		set {
 			if accessoryImage != nil {
@@ -124,8 +125,28 @@ extension UIAlertAction {
 		}
 	}
 	
+	var contentViewController: UIViewController? {
+		get { return self.contentViewController_ }
+		set {
+			if accessoryImage != nil {
+				print("The accessory image might overlap with the content of the contentViewController")
+			}
+			self.contentViewController_ = newValue
+		}
+	}
+	
+	var tableViewController: UITableViewController? {
+		get { return self.contentViewController_ as? UITableViewController }
+		set {
+			if accessoryImage != nil {
+				print("The accessory image might overlap with the content of the contentViewController")
+			}
+			self.contentViewController_ = newValue
+		}
+	}
+	
 	var accessoryView: UIView? {
-		get { return contentViewController?.elementView }
+		get { return contentElementViewController?.elementView }
 		set {
 			let elementViewController = ElementViewController()
 			elementViewController.elementView = newValue
@@ -232,6 +253,14 @@ extension Array where Element == StringAttribute {
 	}
 }
 
+extension UIView {
+	func mapEverySubview(predicate: (UIView) -> Void) {
+		predicate(self)
+		for subview in self.subviews {
+			subview.mapEverySubview(predicate: predicate)
+		}
+	}
+}
 private extension UIView {
 	var visualEffectView: UIVisualEffectView? {
 		

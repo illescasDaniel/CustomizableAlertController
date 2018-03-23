@@ -8,6 +8,33 @@
 
 import UIKit
 
+class MobileDataItem: UITableViewController {
+	
+	override func viewDidLoad() {
+		self.tableView.rowHeight = 35
+	}
+	
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 1
+	}
+	
+	override func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
+		return false
+	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+		
+		cell.imageView?.image = #imageLiteral(resourceName: "safariIcon")
+		cell.textLabel?.text = "Safari"
+		cell.detailTextLabel?.text = "474MB"
+		cell.accessoryView = UISwitch()
+		
+		return cell
+	}
+}
+
 class ViewController: UIViewController {
 
 	override func viewDidLoad() {
@@ -16,7 +43,22 @@ class ViewController: UIViewController {
 	
 	@IBAction func displayAlert(_ sender: UIButton) {
 		
-		let darkAlertController = DarkAlertController(title: "Do you want to do X?", message: ":D hii", preferredStyle: .alert)
+		let mobileDataAlertController = CustomizableAlertController(title: "Mobile Data is Turned Off for \"Safari\"", message: "You can turn on mobile data. Open Settings for more information", preferredStyle: .alert)
+		
+		let safariAction = UIAlertAction()
+		safariAction.tableViewController = MobileDataItem()
+		mobileDataAlertController.addAction(safariAction)
+		
+		mobileDataAlertController.addAction(title: "Settings", style: .default) { _ in
+			
+		}
+		
+		mobileDataAlertController.addAction(title: "OK", style: .cancel) { _ in
+			
+		}
+		
+		self.present(mobileDataAlertController, animated: true)
+		/*let darkAlertController = DarkAlertController(title: "Do you want to do X?", message: ":D hii", preferredStyle: .actionSheet)
 		darkAlertController.addAction(title: "Yes", style: .default, image: #imageLiteral(resourceName: "iconTest"))
 		
 		let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
@@ -39,7 +81,7 @@ class ViewController: UIViewController {
 		let switchElement = UISwitch()
 		switchElement.addTarget(self, action: #selector(testFunc), for: .valueChanged)
 		testAction.accessoryView = switchElement
-		
+		*/
 		// Add any viewController
 		/*let switchVC = ElementViewController()
 		switchVC.elementView = UISwitch()
@@ -49,7 +91,7 @@ class ViewController: UIViewController {
 		greenAction.contentViewController = switchVC
 		}*/
 		
-		darkAlertController.addParallaxEffect(x: 20, y: 20)
+		/*darkAlertController.addParallaxEffect(x: 20, y: 20)
 		
 		self.present(darkAlertController, animated: true)
 		
@@ -66,7 +108,7 @@ class ViewController: UIViewController {
 		
 		greenAction.titleAttributes = [
 			StringAttribute(key: .foregroundColor, value: UIColor.green)
-		]
+		]*/
 	}
 	
 	@objc internal func testFunc() {
