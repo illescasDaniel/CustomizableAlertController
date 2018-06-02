@@ -246,7 +246,7 @@ typealias StringAttribute = NSAttributedString.StringAttribute
 
 extension Array where Element == StringAttribute {
 	func suitableAttributedText(forText text: String?) -> NSAttributedString {
-		if self.flatMap({ $0.range }).isEmpty {
+		if self.compactMap({ $0.range }).isEmpty {
 			return NSAttributedString(string: text, attributes: self)
 		}
 		return NSMutableAttributedString(string: text, mutableAttributes: self)

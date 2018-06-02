@@ -40,6 +40,14 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		let statusBarView = UIView(frame: UIApplication.shared.statusBarFrame)
+		let statusBarColor = UIColor(red: 32/255, green: 149/255, blue: 215/255, alpha: 1.0)
+		statusBarView.backgroundColor = statusBarColor
+		
+		statusBarView.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
+		
+		self.view.addSubview(statusBarView)
 	}
 	
 	@IBAction func displayAlert(_ sender: UIButton) {
