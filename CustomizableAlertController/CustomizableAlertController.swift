@@ -166,11 +166,11 @@ extension NSAttributedString {
 	
 	struct StringAttribute {
 		
-		let key: NSAttributedStringKey
+		let key: NSAttributedString.Key
 		let value: Any
 		var range: NSRange? = nil
 		
-		init(key: NSAttributedStringKey, value: Any, range: NSRange? = nil) {
+		init(key: NSAttributedString.Key, value: Any, range: NSRange? = nil) {
 			self.key = key
 			self.value = value
 			self.range = range
@@ -192,7 +192,7 @@ extension NSAttributedString {
 		
 		guard let validString = string else { self.init(string: "", attributes: [:]); return }
 		
-		var attributesDict: [NSAttributedStringKey: Any] = [:]
+		var attributesDict: [NSAttributedString.Key: Any] = [:]
 		for attribute in attributes {
 			attributesDict[attribute.key] = attribute.value
 		}

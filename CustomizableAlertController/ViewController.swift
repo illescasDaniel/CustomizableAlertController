@@ -52,7 +52,9 @@ class ViewController: UIViewController {
 	
 	@IBAction func displayAlert(_ sender: UIButton) {
 		
-		let mobileDataAlertController = CustomizableAlertController(title: "Mobile Data is Turned Off for \"Safari\"", message: "You can turn on mobile data. Open Settings for more information", preferredStyle: .alert)
+		let mobileDataAlertController = CustomizableAlertController(title: "Mobile Data is Turned Off for \"Safari\"",
+																	message: "You can turn on mobile data. Open Settings for more information",
+																	preferredStyle: .alert)
 		
 		let safariAction = UIAlertAction()
 		safariAction.tableViewController = MobileDataItem()
